@@ -15,12 +15,12 @@ public class Cliente {
 
     private String nombre;
     private int edad;
-    private int ID;
+    private String ID;
     private String usuario;
     private String contraseña;
     private ArrayList<BienesInmuebles> bienesRaices;
 
-    public Cliente(String nombre, int edad, int ID, String usuario, String contraseña, ArrayList<BienesInmuebles> bienesRaices) {
+    public Cliente(String nombre, int edad, String ID, String usuario, String contraseña, ArrayList<BienesInmuebles> bienesRaices) {
         this.nombre = nombre;
         this.edad = edad;
         this.ID = ID;
@@ -45,11 +45,11 @@ public class Cliente {
         this.edad = edad;
     }
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
