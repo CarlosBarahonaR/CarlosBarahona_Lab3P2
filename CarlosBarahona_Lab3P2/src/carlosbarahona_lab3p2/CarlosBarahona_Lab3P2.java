@@ -547,7 +547,57 @@ public class CarlosBarahona_Lab3P2 {
 
                         }
                     }
+                    break;
+                }
+                case 2: {
+                    System.out.println("Ingrese el ID único de la propiedad para comprarla");
+                    int ID2 = r.nextInt();
+                    int item2 = 0;
+                    int posResidencial = 0;
+                    for (int x = 0; x < residenciales.size(); x++) {
 
+                        for (int i = 0; i < residenciales.get(x).getBienesInmuebles().size(); i++) {
+                            int ID = 0;
+                            if (residenciales.get(x).getBienesInmuebles().get(i) instanceof Edificio) {
+                                ID = ((Casa) residenciales.get(x).getBienesInmuebles().get(i)).getID();
+                            }
+                            if (ID2 == ID) {
+                                item2 = i;
+                                posResidencial = x;
+                                i = residenciales.get(x).getBienesInmuebles().size();
+                                x = residenciales.size();
+                            } else {
+                                item2 = 10000;
+                            }
+                        }
+                    }
+                    if (item2 != 10000) {
+                        System.out.println("Ingrese su nombre de usuario");
+                        String usuario = r.next();
+                        System.out.println("Ingrese su contraseña");
+                        String contraseña = r.next();
+
+                        for (int x = 0; x < clientes.size(); x++) {
+                            String usuarioVerificar = "";
+                            String contraseñaVerificar = "";
+                            usuarioVerificar = ((Cliente) clientes.get(x)).getUsuario();
+                            contraseñaVerificar = ((Cliente) clientes.get(x)).getContraseña();
+                            if (usuario.equals(usuarioVerificar) && contraseña.equals(contraseñaVerificar)) {
+                                System.out.println("Ha comprado la propiedad:");
+                                System.out.println(residenciales.get(posResidencial).getBienesInmuebles().get(item2));
+                                System.out.println("Que tenga un buen día.");
+                                clientes.get(x).getBienesRaices().add(residenciales.get(posResidencial).getBienesInmuebles().get(item2));
+
+                            } else {
+                                System.out.println("El usuario no fue encontrado");
+                            }
+
+                        }
+
+                    } else {
+                        System.out.println("No se encontro el ID de la propiedad que acaba de ingresar");
+                    }
+                    break;
                 }
 
             }
